@@ -1,34 +1,31 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include<set>
 using namespace std;
 
-int main()
-{
-    int array[250];
-    int n , p , q;
-    cin >> n >> p;
-    int count = 0;
+int main() {
 
-    for(int i =  0 ; i < p ; i++){
-        cin >> array[i];
-    }
-    cin >> q;
-    for(int i = p ; i < p + q ; i++){
-        cin >> array[i];
-    }
+	 int n;
+	 cin>>n;
+	 set<int> levels;
+	  int q,y;
+	  cin>>q;
 
-    sort(array , array+(p+q));
+	  for(int i=0;i<q;i++){
+		  int x;
+		  cin>>x;
+		  levels.insert(x);
+	  }
+	  cin>>y;
+	  for(int i=0;i<y;i++){
+		  int w;
+		  cin>>w;
+		  levels.insert(w);
+	  }
 
-    for(int i = 0 ; i < p+q ; i++){
-        if(array[i] != array[i+1]){
-            count++;
-        }
-    }
-
-    if(n == (count)){
-        cout << "I become the guy." <<endl;
-    }else{
-        cout << "Oh, my keyboard!" << endl;
-    }
-
-    return 0;
+	  if(levels.size()==n)
+		  cout<<"I become the guy.";
+	  else
+		  cout<<"Oh, my keyboard!";
+          
+	return 0;
 }
